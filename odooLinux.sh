@@ -1,34 +1,12 @@
 #!/bin/bash
 
-# Python script embedded within bash script
-python_output=$(python3 - <<END
-# Python code starts here
-# Replace this section with your actual Python script
-
-# Sample Python code to collect user inputs
-username = input("Enter username: ")
-pc_nickname = input("Enter PC nickname: ")
-hostname = input("Enter hostname: ")
-password = input("Enter password: ")
-ssh_authorized_key = input("Enter SSH authorized key (optional): ")
-
-# Output variables in the required format
-print(f"Username: {username}")
-print(f"PC Nickname: {pc_nickname}")
-print(f"Hostname: {hostname}")
-print(f"Password: {password}")
-print(f"SSH Authorized Key: {ssh_authorized_key}")
-
-# Python code ends here
-END
-)
-
-# Extract variables from Python output
-username=$(echo "$python_output" | awk '/Username:/ {print $2}')
-pc_nickname=$(echo "$python_output" | awk '/PC Nickname:/ {print $3}')
-hostname=$(echo "$python_output" | awk '/Hostname:/ {print $2}')
-password=$(echo "$python_output" | awk '/Password:/ {print $2}')
-ssh_authorized_key=$(echo "$python_output" | awk '/SSH Authorized Key:/ {print $4}')
+# Collect user inputs using 'read' command
+read -p "Enter username: " username
+read -p "Enter PC nickname: " pc_nickname
+read -p "Enter hostname: " hostname
+read -sp "Enter password: " password
+echo
+read -p "Enter SSH authorized key (optional): " ssh_authorized_key
 
 # Generate autoinstall.yaml
 cat <<EOF > autoinstall.yaml

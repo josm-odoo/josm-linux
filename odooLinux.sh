@@ -96,4 +96,4 @@ EOF
 }
 
 # Open a terminal window for input
-gnome-terminal -- bash -c "collect_inputs; exec bash"
+gnome-terminal -- bash -c "collect_inputs"

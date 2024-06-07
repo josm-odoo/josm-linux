@@ -100,4 +100,4 @@ EOF
 
 # Open a terminal window for input
 echo "Opening terminal window..."
-gnome-terminal -- bash -c "source $0 && collect_inputs; read -p 'Press Enter to exit...'"
+gnome-terminal -- bash -c "collect_inputs; read -p 'Press Enter to exit...'"

@@ -2,6 +2,7 @@
 
 # Function to collect user inputs
 collect_inputs() {
+    echo "Starting collect_inputs function..."
     read -p "Enter username: " username
     read -p "Enter PC nickname: " pc_nickname
     read -p "Enter hostname: " hostname
@@ -10,6 +11,7 @@ collect_inputs() {
     read -p "Enter SSH authorized key (optional): " ssh_authorized_key
 
     # Generate autoinstall.yaml
+    echo "Generating autoinstall.yaml..."
     cat <<EOF > autoinstall.yaml
     # autoinstall.yaml
 
@@ -34,6 +36,7 @@ EOF
     fi
 
     # Add remaining autoinstall.yaml content
+    echo "Adding network configuration..."
     cat <<EOF >> autoinstall.yaml
 
     # Network configuration
@@ -96,4 +99,5 @@ EOF
 }
 
 # Open a terminal window for input
-gnome-terminal -- bash -c "source $0 && collect_inputs"
+echo "Opening terminal window..."
+gnome-terminal -- bash -c "source $0 && collect_inputs; read -p 'Press Enter to exit...'"

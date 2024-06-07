@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Function to open a terminal window for input
-open_terminal() {
-    # Run xterm with a bash session
-    xterm -e bash -c "$1; bash"
-}
-
 # Function to collect user inputs
 collect_inputs() {
     read -p "Enter username: " username
@@ -102,5 +96,4 @@ EOF
 }
 
 # Open a terminal window for input
-open_terminal "collect_inputs"
-
+gnome-terminal -- bash -c "collect_inputs; exec bash"

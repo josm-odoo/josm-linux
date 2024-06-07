@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Python script embedded within bash script
-python_output=$(python - <<END
+python_output=$(python3 - <<END
 # Python code starts here
 # Replace this section with your actual Python script
 

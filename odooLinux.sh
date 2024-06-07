@@ -96,4 +96,4 @@ EOF
 }
 
 # Open a terminal window for input
-gnome-terminal -- bash -c "collect_inputs"
+gnome-terminal -- bash -c "source $0 && collect_inputs"
